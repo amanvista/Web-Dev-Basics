@@ -1,5 +1,8 @@
 import './App.css'
 import Expenses from './components/Expenses'
+import ExpenseForm from './components/NewExpenses/ExpenseForm';
+import './components/NewExpenses/NewExpense.css';
+
 function App(){
    
     let expenses = [
@@ -23,6 +26,11 @@ function App(){
         }
     ]
     return (<div>
+        <div class="new-expense">
+     <ExpenseForm/>
+
+        </div>
+     
     <Expenses item = { expenses}/>
     </div>);
 }
