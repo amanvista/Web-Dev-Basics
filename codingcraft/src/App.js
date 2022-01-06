@@ -1,10 +1,11 @@
 import './App.css'
 import Expenses from './components/Expenses'
 import NewExpense from './components/NewExpenses/NewExpense';
+import React, { useState } from 'react'
 
-function App(){
-   
-    let expenses = [
+
+const App = () =>{
+    let dummy_expense = [
         {
             id: 'e1',
             expenseDate : new Date(),
@@ -24,12 +25,16 @@ function App(){
             expenseAmount : 300 
         }
     ]
+   const [ expenses, setExpenses ] = useState(dummy_expense) 
+
     const addExpenseHandler = (expense)=>{
-        console.log(expense)
-        console.log("from Parent");
+
+        const updatedExpense = [ expense, ...expenses]
+        console.log(updatedExpense);
+        setExpenses(updatedExpense)
     }
     return (<div>
-       
+        
      <NewExpense onAddExpense={addExpenseHandler}/>
     <Expenses item = { expenses}/>
     </div>);
